@@ -20,5 +20,10 @@ namespace FranksCarShop.Stores.WarehouseStore.JsonWarehouseStore
         {
             return _warehouses.SelectMany(warehouse => warehouse.Cars);
         }
+
+        public Warehouse GetWarehouseByCarId(int carId)
+        {
+            return _warehouses.First(warehouse => warehouse.Cars.Any(car => car.Id == carId));
+        }
     }
 }

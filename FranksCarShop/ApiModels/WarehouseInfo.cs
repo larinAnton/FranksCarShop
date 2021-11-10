@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
+using FranksCarShop.Stores.WarehouseStore.DataStructures;
 
-namespace FranksCarShop.Stores.WarehouseStore.DataStructures
+namespace FranksCarShop.ApiModels
 {
-    public class Warehouse
+    public class WarehouseInfo
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public IEnumerable<Car> Cars { get; set; }
         public GeographicLocation GeographicLocation { get; set; }
     }
 }

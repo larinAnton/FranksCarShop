@@ -21,6 +21,10 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "no-unused-vars": ["warn"],
+        "quotes": ["error", "single"],
+        "comma-dangle": ["error", "always-multiline"],
+        "semi": ["error", "always"]
     },
     "ignorePatterns": ["*.css", "*.svg"],
     "settings": {
