@@ -1,0 +1,24 @@
+﻿[
+  {
+    "_id": "1",
+    "name": "name",
+    "location": {
+      "lat": "1",
+      "long": "1"
+    },
+    "cars": {
+      "location": "location",
+      "vehicles": [
+        {
+          "_id": 1,
+          "make": "make",
+          "model": "model",
+          "year_model": 1,
+          "price": 1,
+          "licensed": true,
+          "date_added": "2021-09-18"
+        }
+      ]
+    }
+  }
+]

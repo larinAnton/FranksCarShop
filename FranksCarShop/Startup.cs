@@ -1,3 +1,6 @@
+using FranksCarShop.Stores;
+using FranksCarShop.Stores.WarehouseStore;
+using FranksCarShop.Stores.WarehouseStore.JsonWarehouseStore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +27,10 @@ namespace FranksCarShop
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "client/build"; });
+            
+            services.AddSingleton<IWarehouseStore, JsonWarehouseStore>();
+            services.AddTransient<JsonWarehouseParser>();
+            services.AddTransient<ResourceProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

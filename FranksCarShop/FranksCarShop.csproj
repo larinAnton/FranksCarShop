@@ -11,6 +11,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.11" />
+        <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -24,6 +25,11 @@
       <_ContentIncludedByDefault Remove="client\package-lock.json" />
       <_ContentIncludedByDefault Remove="client\package.json" />
       <_ContentIncludedByDefault Remove="client\public\manifest.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="warehouses.json" />
+      <EmbeddedResource Include="warehouses.json" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
