@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Modal from '../common/Modal';
-import { Car, Warehouse } from '.';
+import { Car, Warehouse } from '../store/carStore';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import carPlaceholder from './resources/carPlaceholder.jpg';

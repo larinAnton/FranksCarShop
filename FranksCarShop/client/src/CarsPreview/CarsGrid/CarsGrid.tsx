@@ -1,11 +1,14 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import CarItem from './CarItem';
-import { Car } from '../index';
+import { Car } from '../../store/carStore';
 
 interface CarsGridProps {
     cars: Car[],
-    onView: (car: Car) => void
+    onView: (car: Car) => void,
+    onAddToCart: (car: Car) => void,
+    onRemoveFromCart: (car: Car) => void,
+    selectedCarIds: number[],
 }
 
 const CarsGrid = (props: CarsGridProps) => {
@@ -15,6 +18,9 @@ const CarsGrid = (props: CarsGridProps) => {
                 key={car.id}
                 car={car}
                 onView={props.onView}
+                onAddToCart={props.onAddToCart}
+                onRemoveFromCart={props.onRemoveFromCart}
+                selected={props.selectedCarIds.includes(car.id)}
                 />,
             )}
         </Grid>
