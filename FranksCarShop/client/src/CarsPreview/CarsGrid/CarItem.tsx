@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import carPlaceholder from '../resources/carPlaceholder.jpg';
 import { Car } from '../../store/carStore';
+import * as viewHelper from '../../common/viewHelper';
 
 interface CarItemProps {
     car: Car,
@@ -18,14 +19,6 @@ interface CarItemProps {
 }
 
 const CarItem = (props: CarItemProps) => {
-    const yearModel = new Date(props.car.yearModel);
-    const dateAdded = new Date(props.car.dateAdded);
-    //TODO: culture settings
-    const priceFormat = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-    });
-
     const renderCartButton = () => {
         if (!props.car.licensed) {
             return null;
@@ -68,13 +61,13 @@ const CarItem = (props: CarItemProps) => {
                         {props.car.make} {props.car.model}
                     </Typography>
                     <Typography>
-                        made in {yearModel.getFullYear()}
+                        made in {viewHelper.showYear(props.car.yearModel)}
                     </Typography>
                     <Typography>
-                        price: {priceFormat.format(props.car.price)}
+                        price: {viewHelper.showPrice(props.car.price)}
                     </Typography>
                     <Typography>
-                        added by: {dateAdded.toLocaleDateString('en-US')}
+                        added by: {viewHelper.showDateOnly(props.car.dateAdded)}
                     </Typography>
                 </CardContent>
                 <CardActions>

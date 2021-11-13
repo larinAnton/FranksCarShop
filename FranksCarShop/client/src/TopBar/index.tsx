@@ -1,7 +1,10 @@
 import AppBar from '@mui/material/AppBar';
 import * as React from 'react';
 import CarStore from '../store/carStore';
-import ShoppingCart from './ShoppingCart';
+import ShoppingCart from './CartNavigation';
+import Container from '@mui/material/Container';
+import Toolbar from '@mui/material/Toolbar';
+import CarsPreviewNavigation from './CarsPreviewNavigation';
 
 interface TopBarProps {
     carStore: CarStore;
@@ -9,9 +12,14 @@ interface TopBarProps {
 
 const TopBar = ({ carStore }: TopBarProps) => {
     return (
-        <AppBar position="fixed">
-            <ShoppingCart carStore={carStore} />
-        </AppBar>
+        <Container sx={{ pb: 12 }}>
+            <AppBar position="fixed">
+                <Toolbar>
+                    <ShoppingCart carStore={carStore} />
+                    <CarsPreviewNavigation/>
+                </Toolbar>
+            </AppBar>
+        </Container>
     );
 };
 

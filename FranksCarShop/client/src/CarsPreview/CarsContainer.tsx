@@ -7,7 +7,7 @@ interface CarsContainerProps {
 
 const CarsContainer = (props: CarsContainerProps) => {
     return (
-        <Container sx={{ py: 16 }} maxWidth="lg">
+        <Container maxWidth="lg">
             {props.children}
         </Container>
     );
