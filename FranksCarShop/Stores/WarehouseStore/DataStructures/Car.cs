@@ -14,6 +14,6 @@ namespace FranksCarShop.Stores.WarehouseStore.DataStructures
         public bool Licensed { get; set; }
         public DateTime DateAdded { get; set; }
         public string Location { get; set; }
-        
+        public Warehouse Warehouse { get; set; }
     }
 }

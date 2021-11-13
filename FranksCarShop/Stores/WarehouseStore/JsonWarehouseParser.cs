@@ -51,10 +51,10 @@ namespace FranksCarShop.Stores.WarehouseStore.JsonWarehouseStore
             };
         }
 
-        private IEnumerable<Car> ParseCars(JToken carsJToken)
+        private ICollection<Car> ParseCars(JToken carsJToken)
         {
             var location = carsJToken.Value<string>(LocationField);
-            return carsJToken[VehiclesField].Select(carJToken => ParseCar(carJToken, location));
+            return carsJToken[VehiclesField].Select(carJToken => ParseCar(carJToken, location)).ToArray();
         }
 
         private Car ParseCar(JToken carJToken, string location)
