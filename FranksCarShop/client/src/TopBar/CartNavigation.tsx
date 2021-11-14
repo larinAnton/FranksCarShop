@@ -21,7 +21,7 @@ const CartNavigation = ({ carStore }: ShoppingCartProps) => {
         >
             <Badge badgeContent={carStore.getCarts().length} color="secondary">
                 <ShoppingCartIcon
-                    sx={{ mr: 2}}
+                    sx={{ mr: 2 }}
                     color="inherit"
                 />
             </Badge>

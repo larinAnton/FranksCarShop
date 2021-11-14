@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from '../common/Modal';
 import { Car, Warehouse } from '../store/carStore';
 import Typography from '@mui/material/Typography';
@@ -12,7 +12,7 @@ interface CarViewModalProps {
     car: Car | null;
 }
 
-const CarViewModal = ({car, onClose}: CarViewModalProps) => {
+const CarViewModal = ({ car, onClose }: CarViewModalProps) => {
     const [warehouse, setWarehouse] = useState<Warehouse | null>(null);
 
     useEffect(() => {

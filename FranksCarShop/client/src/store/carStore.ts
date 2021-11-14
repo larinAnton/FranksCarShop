@@ -1,4 +1,4 @@
-import { makeAutoObservable, autorun, runInAction, reaction } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 
 export interface Car {
     id: number;

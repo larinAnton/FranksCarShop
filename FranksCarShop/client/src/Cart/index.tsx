@@ -1,8 +1,8 @@
 import React from 'react';
-import CarStore, {Car} from '../store/carStore';
+import CarStore, { Car } from '../store/carStore';
 import Container from '@mui/material/Container';
 import CarTable from './CarTable';
-import {observer} from 'mobx-react';
+import { observer } from 'mobx-react';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 

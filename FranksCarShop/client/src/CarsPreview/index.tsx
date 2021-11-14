@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import CarsContainer from './CarsContainer';
 import CarsGrid from './CarsGrid/CarsGrid';
-import axios, {AxiosResponse} from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import CarViewModal from './CarViewModal';
 import CarStore, { Car } from '../store/carStore';
 import { observer } from 'mobx-react';
@@ -34,7 +34,7 @@ const CarsModule = ({ carStore }: Store) => {
         });
     };
 
-    const { ref } = useInfiniteScroll({fetchData});
+    const { ref } = useInfiniteScroll({ fetchData });
 
     const openCarViewModal = (car: Car) => {
         setCarToView(car);

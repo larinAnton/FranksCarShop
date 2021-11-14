@@ -1,7 +1,7 @@
 import React from 'react';
-import {Route, BrowserRouter, Routes} from 'react-router-dom';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import './App.css';
-import {createTheme, ThemeProvider} from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import TopBar from './TopBar';
 import CarsPreview from './CarsPreview';

@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, fireEvent} from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import CarsGrid from './CarsGrid';
 import { Car } from '../../store/carStore';
 
@@ -33,14 +33,14 @@ const getFakeCar = (id: number, licensed = true): Car => {
 
 describe('cars grid', () => {
     it('should render all items', () => {
-        const {getByTestId} = renderCarsGrid([getFakeCar(1), getFakeCar(2)]);
+        const { getByTestId } = renderCarsGrid([getFakeCar(1), getFakeCar(2)]);
 
         getByTestId('car-item-1');
         getByTestId('car-item-2');
     });
 
     it('should render proper text', () => {
-        const {getByText} = renderCarsGrid([getFakeCar(1)]);
+        const { getByText } = renderCarsGrid([getFakeCar(1)]);
 
         getByText('make model');
         getByText('made in 2000');
@@ -51,7 +51,7 @@ describe('cars grid', () => {
     it('should call onView if view button is clicked', () => {
         const onView = jest.fn();
         const car = getFakeCar(1);
-        const {getByText} = renderCarsGrid([car], onView);
+        const { getByText } = renderCarsGrid([car], onView);
 
         const viewButton = getByText('View');
         fireEvent.click(viewButton);
@@ -59,7 +59,7 @@ describe('cars grid', () => {
     });
 
     it('cart buttons should not be visible if car in not licensed', () => {
-        const {queryByText} = renderCarsGrid([getFakeCar(1, false)]);
+        const { queryByText } = renderCarsGrid([getFakeCar(1, false)]);
 
         const addButton = queryByText('Add to cart');
         expect(addButton).toBeNull();
@@ -71,7 +71,7 @@ describe('cars grid', () => {
     it('should call onAddToCart if add to cart button is clicked', () => {
         const onAddToCart = jest.fn();
         const car = getFakeCar(1);
-        const {getByText} = renderCarsGrid([car], () => {}, onAddToCart);
+        const { getByText } = renderCarsGrid([car], () => {}, onAddToCart);
 
         const viewButton = getByText('Add to cart');
         fireEvent.click(viewButton);
@@ -81,7 +81,7 @@ describe('cars grid', () => {
     it('should call onRemoveFromCart if remove button is clicked', () => {
         const onRemoveFromCart = jest.fn();
         const car = getFakeCar(1);
-        const {getByText} = renderCarsGrid(
+        const { getByText } = renderCarsGrid(
             [car],
             () => {},
             () => {},
