@@ -5,6 +5,9 @@ import axios, {AxiosResponse} from 'axios';
 import CarViewModal from './CarViewModal';
 import CarStore, { Car } from '../store/carStore';
 import { observer } from 'mobx-react';
+import useInfiniteScroll from '../common/hooks/useInfiniteScroll';
+import CircularProgress from '@mui/material/CircularProgress';
+import Grid from '@mui/material/Grid';
 
 interface Store {
     carStore: CarStore;
@@ -13,12 +16,25 @@ interface Store {
 const CarsModule = ({ carStore }: Store) => {
     const [cars, setCars] = useState<Car[]>([]);
     const [carToView, setCarToView] = useState<Car | null>(null);
+    const [allLoaded, setAllLoaded] = useState(false);
 
-    useEffect(() => {
-        axios.get('warehouse/cars').then((response: AxiosResponse<Car[]>) => {
-            setCars(response.data);
+    const fetchData = (page: number) => {
+        axios.get('warehouse/cars', {
+            params: {
+                take: 10,
+                page,
+            },
+        }).then((response: AxiosResponse<Car[]>) => {
+            if (response.data.length) {
+                setCars((cars) => [...cars, ...response.data]);
+            } else {
+                setAllLoaded(true);
+            }
+
         });
-    }, []);
+    };
+
+    const { ref } = useInfiniteScroll({fetchData});
 
     const openCarViewModal = (car: Car) => {
         setCarToView(car);
@@ -49,6 +65,9 @@ const CarsModule = ({ carStore }: Store) => {
                 onRemoveFromCart={onRemoveFromCart}
                 selectedCarIds={carStore.getCarts().map((car) => car.id)}
             />
+            {!allLoaded && <Grid container justifyContent="center">
+                <CircularProgress ref={ref}/>
+            </Grid>}
         </CarsContainer>
     );
 };

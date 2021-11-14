@@ -4,7 +4,7 @@ import Container from '@mui/material/Container';
 import CarTable from './CarTable';
 import {observer} from 'mobx-react';
 import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
 interface CartProps {
     carStore: CarStore;
@@ -21,17 +21,15 @@ const Cart = ({ carStore }: CartProps) => {
                 cars={carStore.getCarts()}
                 onRemove={onRemove}
             />
-            <Container sx={{ pt: 4 }}>
-                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                    {!!carStore.getCarts().length && <Button
-                        variant="contained"
-                        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                        target="_blank"
-                    >
-                        Make the order
-                    </Button>}
-                </Box>
-            </Container>
+            <Grid container justifyContent="center" sx={{ pt: 4 }}>
+                {!!carStore.getCarts().length && <Button
+                    variant="contained"
+                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    target="_blank"
+                >
+                    Make the order
+                </Button>}
+            </Grid>
         </Container>
     );
 };

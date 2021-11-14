@@ -21,9 +21,9 @@ namespace FranksCarShop.Controllers
 
         [Route("cars")]
         [HttpGet]
-        public IEnumerable<Car> Get()
+        public IEnumerable<Car> Get(int take, int page)
         {
-            return _warehouseStore.GetCars().OrderBy(car => car.DateAdded);
+            return _warehouseStore.GetCars(take, page);
         }
 
         [Route("warehouseInfo")]

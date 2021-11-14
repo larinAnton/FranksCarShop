@@ -26,9 +26,9 @@ namespace FranksCarShop.Stores.WarehouseStore
                 .HasColumnType("decimal(18,4)");
         }
 
-        public IEnumerable<Car> GetCars()
+        public IQueryable<Car> GetCars(int take, int page = 0)
         {
-            return Cars;
+            return Cars.OrderBy(car => car.DateAdded).Skip(page * take).Take(take);
         }
 
         public Warehouse GetWarehouseByCarId(int carId)

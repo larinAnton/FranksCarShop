@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@mui/material/Container';
 
 interface CarsContainerProps {
-    children: React.ReactChild | React.ReactChild[]
+    children: React.ReactNode
 }
 
 const CarsContainer = (props: CarsContainerProps) => {

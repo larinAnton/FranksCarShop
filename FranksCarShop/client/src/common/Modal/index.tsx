@@ -8,8 +8,8 @@ interface ModalProps {
     title: string;
     onClose: () => void;
     open: boolean;
-    children: React.ReactChild | React.ReactChild[];
-    actions?: React.ReactChild | React.ReactChild[];
+    children: React.ReactNode;
+    actions?: React.ReactNode;
 }
 
 const Modal = (props: ModalProps) => {
